@@ -1,1 +1,0 @@
-export default function Reports(){return <h1>Class Reports & Misconceptions</h1>;}

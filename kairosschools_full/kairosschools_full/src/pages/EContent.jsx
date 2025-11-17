@@ -1,1 +1,0 @@
-export default function EContent(){return <h1>E-Content for Classrooms (K-12)</h1>;}
