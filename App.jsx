@@ -1,29 +1,39 @@
-import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Header from './components/Header.jsx';
-import Home from './pages/Home.jsx';
-import Competency from './pages/Competency.jsx';
-import Pedagogy from './pages/Pedagogy.jsx';
-import EContent from './pages/EContent.jsx';
-import Login from './pages/Login.jsx';
-import Dashboard from './pages/Dashboard.jsx';
-import Reports from './pages/Reports.jsx';
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import Competency from "./pages/competency";
 
-export default function App(){
-  return(
-    <BrowserRouter>
-      <Header/>
-      <div style={{padding:'20px'}}>
+export default function App() {
+  return (
+    <Router>
+      <div>
+
         <Routes>
-          <Route path='/' element={<Home/>}/>
-          <Route path='/competency' element={<Competency/>}/>
-          <Route path='/pedagogy' element={<Pedagogy/>}/>
-          <Route path='/econtent' element={<EContent/>}/>
-          <Route path='/login' element={<Login/>}/>
-          <Route path='/dashboard' element={<Dashboard/>}/>
-          <Route path='/reports' element={<Reports/>}/>
+          {/* Home Page */}
+          <Route
+            path="/"
+            element={
+              <div>
+                <Header />
+                <section style={{ padding: "60px", textAlign: "center" }}>
+                  <h1 style={{ fontSize: "42px" }}>Welcome to Kairos</h1>
+                  <p style={{ fontSize: "20px" }}>
+                    Empowering K-12 schools with data-driven insights,
+                    pedagogy support, and rich e-content.
+                  </p>
+                </section>
+                <Footer />
+              </div>
+            }
+          />
+
+          {/* Competency Page */}
+          <Route path="/competency" element={<Competency />} />
+
         </Routes>
+
       </div>
-    </BrowserRouter>
+    </Router>
   );
 }
