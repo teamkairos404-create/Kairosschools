@@ -1,0 +1,24 @@
+/* Mobile-first responsiveness */
+@media (max-width: 768px) {
+  header nav {
+    flex-direction: column;
+    background: #111;
+    width: 100%;
+    padding: 10px 0;
+  }
+
+  header button {
+    display: block !important;
+  }
+
+  header nav a {
+    padding: 10px 0;
+  }
+}
+
+/* Desktop view */
+@media (min-width: 769px) {
+  header button {
+    display: none !important;
+  }
+}
