@@ -1,0 +1,1 @@
+export default function Competency(){return <h1>Competency-Based Questions</h1>;}

@@ -1,0 +1,1 @@
+export default function Pedagogy(){return <h1>Pedagogy & Teacher Training</h1>;}
