@@ -1,86 +1,70 @@
 import React, { useState } from "react";
-import { motion } from "framer-motion";
+import "./Header.css";
 
-const Header = () => {
+export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header style={styles.header}>
-      <div style={styles.brand}>
-        <img src="/logo.png" alt="Kairos Logo" style={styles.logo} />
-        <h1 style={styles.title}>KairosSchools</h1>
-      </div>
+    <header
+      style={{
+        display: "flex",
+        justifyContent: "space-between",
+        alignItems: "center",
+        padding: "20px",
+        background: "#000",
+        color: "#fff",
+        position: "sticky",
+        top: 0,
+        zIndex: 1000,
+      }}
+    >
+      {/* LOGO */}
+      <img
+        src="/logo.png"
+        alt="Kairos Logo"
+        style={{ height: "60px", borderRadius: "8px" }}
+      />
 
-      {/* Hamburger menu icon for mobile */}
-      <button style={styles.menuButton} onClick={() => setMenuOpen(!menuOpen)}>
-        {menuOpen ? "✖" : "☰"}
+      {/* Mobile menu button */}
+      <button
+        onClick={() => setMenuOpen(!menuOpen)}
+        style={{
+          fontSize: "28px",
+          background: "transparent",
+          border: "none",
+          color: "white",
+          cursor: "pointer",
+        }}
+      >
+        ☰
       </button>
 
-      {/* Navigation menu */}
-      <motion.nav
-        initial={false}
-        animate={menuOpen ? "open" : "closed"}
-        variants={navVariants}
-        style={styles.nav}
+      {/* Navigation */}
+      <nav
+        style={{
+          display: menuOpen ? "flex" : "flex",
+          gap: "30px",
+        }}
       >
-        <a style={styles.link} href="#competency" onClick={() => setMenuOpen(false)}>Competency</a>
-        <a style={styles.link} href="#pedagogy" onClick={() => setMenuOpen(false)}>Pedagogy</a>
-        <a style={styles.link} href="#econtent" onClick={() => setMenuOpen(false)}>E-Content</a>
-      </motion.nav>
+        <a href="/" style={{ color: "white", textDecoration: "none" }}>
+          Home
+        </a>
+        <a
+          href="/competency"
+          style={{ color: "white", textDecoration: "none" }}
+        >
+          Competency
+        </a>
+        <a href="/pedagogy" style={{ color: "white", textDecoration: "none" }}>
+          Pedagogy
+        </a>
+        <a href="/econtent" style={{ color: "white", textDecoration: "none" }}>
+          E-Content
+        </a>
+        <a href="/contact" style={{ color: "white", textDecoration: "none" }}>
+          Contact
+        </a>
+      </nav>
     </header>
   );
-};
-
-const navVariants = {
-  closed: { opacity: 0, height: 0, transition: { duration: 0.25 } },
-  open: { opacity: 1, height: "auto", transition: { duration: 0.25 } },
-};
-
-const styles = {
-  header: {
-    width: "100%",
-    padding: "15px 20px",
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-    background: "#111",
-    color: "white",
-    position: "sticky",
-    top: 0,
-    zIndex: 1000,
-  },
-  brand: {
-    display: "flex",
-    alignItems: "center",
-    gap: "10px",
-  },
-  logo: {
-    width: "48px",
-    height: "48px",
-    borderRadius: "50%",
-  },
-  title: {
-    fontSize: "24px",
-    margin: 0,
-  },
-  menuButton: {
-    fontSize: "24px",
-    color: "#f9b233",
-    background: "transparent",
-    border: "none",
-    cursor: "pointer",
-    display: "none",
-  },
-  nav: {
-    display: "flex",
-    gap: "20px",
-  },
-  link: {
-    color: "#f9b233",
-    textDecoration: "none",
-    fontSize: "18px",
-    fontWeight: "500",
-  },
-};
-
-export default Header;
+}
